@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Dashboard from './components/Dashboard';
 import AdminView from './components/AdminView';
 import PublicView from './components/PublicView';
+import UserProfile from './components/userprofile'; // Ensure the correct import path
 import TransportSchedule from './components/features/TransportSchedule';
 import Leaderboard from './components/features/Leaderboard';
 import RewardDialog from './components/features/RewardDialog';
@@ -30,6 +31,9 @@ function App() {
               {/* Transport Schedule and Leaderboard Routes */}
               <Route path="/transport" element={<TransportSchedule />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
+
+              {/* User Profile Route */}
+              <Route path="/userprofile" element={<UserProfile />} />
 
               {/* Optional: RewardDialog can be rendered conditionally within a component or as a route */}
               {/* <Route path="/reward" element={<RewardDialog />} /> */}

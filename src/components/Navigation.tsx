@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Navigation2, BarChart2, Users, MapPin, Activity, Wind } from 'lucide-react';
+import { Navigation2, Users, MapPin, Activity, Wind, User } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -40,10 +40,9 @@ const Navigation = () => {
           <div className="flex space-x-4">
             {[
               { path: '/', icon: Activity, label: 'Dashboard' },
-              { path: '/transport', icon: MapPin, label: 'Transport' },
               { path: '/leaderboard', icon: Wind, label: 'Leaderboard' },
               { path: '/admin', icon: Users, label: 'Admin' },
-              { path: '/public', icon: Navigation2, label: 'Public View' }
+              { path: '/public', icon: Navigation2, label: 'Public View' },
             ].map(({ path, icon: Icon, label }) => (
               <Link
                 key={path}
@@ -56,6 +55,16 @@ const Navigation = () => {
                 <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Link>
             ))}
+
+            {/* User Profile Logo */}
+            <Link
+              to="/userprofile"
+              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                location.pathname === '/userprofile' ? 'bg-purple-700' : 'hover:bg-purple-600'
+              } transition-colors`}
+            >
+              <User className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
